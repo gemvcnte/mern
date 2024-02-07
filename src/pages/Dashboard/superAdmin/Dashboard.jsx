@@ -35,7 +35,7 @@ const Dashboard = () => {
   return (
     <div>
       <Sidebar />
-      <div>No content found.</div>
+      <div>Super Admin Sidebar</div>
     </div>
   );
 };

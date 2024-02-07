@@ -20,7 +20,7 @@ const LoginPage = () => {
       const { role, fullName } = response.data;
 
       // Redirect based on user's role
-      navigate(role === 'dean' ? '/dean/dashboard' : '/admin/dashboard'); // Use navigate instead of history.push
+      navigate(role === 'dean' ? '/dean/dashboard' : '/faculty/dashboard'); // Use navigate instead of history.push
     } catch (error) {
       console.error(error);
     }

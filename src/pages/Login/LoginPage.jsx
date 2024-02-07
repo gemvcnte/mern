@@ -15,7 +15,9 @@ const LoginPage = () => {
     try {
       const response = await axios.post('http://localhost:5000/api/u5er/login', { emailAddress, password });
 
-      const { role } = response.data;
+      console.log('Login response: ', response.data)
+
+      const { role, fullName } = response.data;
 
       // Redirect based on user's role
       navigate(role === 'dean' ? '/dean/dashboard' : '/admin/dashboard'); // Use navigate instead of history.push
@@ -77,42 +79,6 @@ const LoginPage = () => {
 
     </div>
     </>
-  //   <div>
-
-  //     <div className='w-full flex  '>
-  //       <div className='w-8/12'>
-  //         <img src={''} alt="hero" />
-         
-  //       </div>
-
-        
-  //     <div className=' w-40 flex justify-center flex-col'>
-  //       <Input
-  //       type="email"
-  //       placeholder="Email"
-  //       className="w-1/8"
-  //       name="emailAddress"
-  //       value={emailAddress}
-  //       onChange={(e) => setEmailAddress(e.target.value)}
-  //     />
-
-  //     <Input
-  //       type="password"
-  //       placeholder="Password"
-  //       className="w-1/8"
-  //       name="password"
-  //       value={password}
-  //       onChange={(e) => setPassword(e.target.value)}
-  //     />
-
-  //     <Button className="my-4" type="button" onClick={handleLogin}>
-  //       Login
-  //     </Button>
-
-        
-  //     </div>
-  //   </div>
-  // </div>
 
   );
 };

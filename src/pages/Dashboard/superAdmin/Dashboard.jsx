@@ -1,40 +1,44 @@
-import react, { useeffect } from 'react';
-import Sidebar from '../../components/Sidebar'
+import React, { useEffect } from 'react';
+import Sidebar from '../../components/Sidebar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const dashboard = () => {
-  const navigate = useNavigate(); // use the usenavigate hook
+const Dashboard = () => {
+  const navigate = useNavigate();
 
-  useeffect(() => {
-
+  useEffect(() => {
     const fetchUserRole = async () => {
       try {
-        const response = await axios.get('/api/u5er/login'); // adjust the endpoint to fetch user role
+        const response = await axios.get('/api/u5er/login');
         const { role } = response.data;
 
         if (role === 'dean') {
-          navigate('/dean/dashboard');
-          console.log('test')
+          console.log('User is a dean');
+          // Additional actions specific to the dean if needed
+        } else if (role === 'faculty') {
+          console.log('User is a faculty');
+          // Additional actions specific to the faculty if needed
         } else {
-          console.log("couldn't fetch");
+          console.log("Couldn't fetch or unknown role");
         }
+
+        // Redirect based on the user's role
+        navigate(role === 'dean' ? '/dean/dashboard' : '/faculty/dashboard');
       } catch (error) {
-        console.error('error fetching user role:', error);
+        console.error('Error fetching user role:', error);
       }
     };
 
-    fetchUserRole(); // call the fetchuserrole function
-
-  }, [navigate]); // include navigate in the dependency array to avoid linting warnings
+    fetchUserRole();
+  }, [navigate]);
 
   return (
     <div>
       <Sidebar />
-      <div>Dashboard</div>
+      <div>No content found.</div>
     </div>
   );
 };
 
-export default dashboard;
+export default Dashboard;
 

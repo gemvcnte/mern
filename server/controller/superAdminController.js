@@ -22,13 +22,12 @@ router.post('/u5er/login', expressAsyncHandler(async (req, res) => {
       return res.status(400).json({ message: 'Invalid email or password.' });
     }
 
-    res.json({ role: user.role, fullName: user.fullName});
+     res.status(200).json({ role: user.role, fullName: user.fullName }); 
   } catch (error) {
     console.error('Error during login:', error);
     res.status(500).json({ message: 'Internal server error. Please try again later.' });
   }
 }));
-
 
 
 router.post('/dean/create-super-admin', expressAsyncHandler(async (req, res) => {

@@ -1,10 +1,10 @@
 // Sidebar.js
 import React from 'react';
-import {
-  DashboardOutlined,
-  AnnouncementOutlined,
-  PersonOutlined
-} from '@mui/icons-material'
+// import {
+//   DashboardOutlined,
+//   AnnouncementOutlined,
+//   PersonOutlined
+// } from '@mui/icons-material'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 const Sidebar = () => {
   return (

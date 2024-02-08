@@ -29,7 +29,7 @@ export default function AllAnnouncement() {
         <div>
             <div className='flex justify-start gap-9 mt-5 mx-72'>
                 <Link to={'/announcement'} >
-                    <button className='underline'>ANouncements</button>
+                    <button className='underline'>Anouncements</button>
                 </Link>
                 <Link to={'/'} >
                 <button>News</button>
